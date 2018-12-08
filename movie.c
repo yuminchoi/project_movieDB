@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "movie_ref.h"
+#include "movie.h"
 
-//structure definition
-typedef struct movInfo {
-	char name[100];
+typedef struct movInfo{
+	char name[200];
 	float score;
 	int runTime;
 	char madeIn[10];
 } movInfo_t;
+
 
 void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
@@ -20,9 +20,10 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	return (void*)mvPtr;
 }
 
-void printMv(void* obj)
+void mv_print(void* obj)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
+	
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
@@ -34,26 +35,29 @@ void printMv(void* obj)
 	return;
 }
 
-int mv_printAll(void* obj, void* arg)
+
+//return the score value from the input instance of movInfo_t structure
+float mv_getScore(void* obj)
 {
 	
 }
 
-int mv_printScore(void* obj, void* arg)
+//return the runtime value from the input instance of movInfo_t structure
+int mv_getRunTime(void* obj)
 {
 	
 }
 
-int mv_printRunTime(void* obj, void* arg)
+//return the name string pointer from the input instance of movInfo_t structure
+char* mv_getName(void* obj)
 {
 	
 }
 
-int mv_printCountry(void* obj, void* arg)
+//return the country string pointer from the input instance of movInfo_t structure
+char* mv_getCountry(void* obj)
 {
 	
 }
-
-
 
 

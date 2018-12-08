@@ -17,9 +17,8 @@ int main(int argc, char *argv[]) {
 	int exit_flag = 0; //flag variable for while loop
 	int option; //user input option
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
-	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function
-	void *arg; //a void pointer for passing argument to repFunc
-	int cnt; //integer variable
+	void *ndPtr; //void pointer for linked list node
+	
 	
 	//1. reading the movie.dat-----------------------------
 	//1.1 FILE open
@@ -37,45 +36,90 @@ int main(int argc, char *argv[]) {
 	//1.4 FILE close
 	
 	//2. program start
-	while(exit_flag == 0)
+	while(exit_flag == 0) 
 	{
 		//2.1 print menu message and get input option
+		printf("---------------MENU--------------------\n");		//메뉴 출력 
+		printf("1. print all the movies\n");
+		printf("2. search for specific country movies\n");
+		printf("3. search for specific runtime movies\n");
+		printf("4. search for specific score movies\n");
+		printf("5. exit\n")
+		printf("---------------MENU--------------------\n\n");
+		
+		printf("--select an option: ");		//메뉴 선택 숫자 입력받음. 
+		scanf("%d", &option); 
+		
 		
 		switch(option)
 		{
 			case 1: //print all the movies
-				printf("\nprinting all the movies in the list.....\n\n\n");
-				printf("----------------------------------------\n");
+				printf("printing all the movies in the list.....\n\n\n");
 				
-				repFunc = mv_printAll;
-				arg = NULL;
+				ndPtr = list;
+				while (/* repeat until the ndPtr points to the end node */)
+				{
+					//2.2 print a movie data : use functions of movie.c and linkedList.c
+					//ndPtr = the next node of the ndPtr;
+					//get object of ndPtr to mvInfo void pointer
+					//print the contents of the mvInfo
+				}
+				
 				break;
 				
 			case 2: //print movies of specific country
-
+				//2.3.1 get country name to search for
+				
+				ndPtr = list;
+					while (/* repeat until the ndPtr points to the end node */)
+				{
+					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
+					//ndPtr = the next node of the ndPtr;
+					//get object of ndPtr to mvInfo void pointer
+					//if the input country matches to the country of the movie,
+					//then print the contents of the mvInfo
+				}
+				
 				break;
 				
-			case 3: //print movies with long runtime
-
+			case 3:
+				//2.4.1 get minimal runtime value to search for
+				
+				ndPtr = list;
+					while (/* repeat until the ndPtr points to the end node */)
+				{
+					//2.4.2 print a movie data : use functions of movie.c and linkedList.c
+					//ndPtr = the next node of the ndPtr;
+					//get object of ndPtr to mvInfo void pointer
+					//if the input runtime is lower than the runtime of the movie,
+					//then print the contents of the mvInfo
+				}
+				
 				break;
 				
-			case 4: //print movies with high score
+			case 4:
+				//2.5.1 get minimal score value to search for
 				
+				ndPtr = list;
+					while (/* repeat until the ndPtr points to the end node */)
+				{
+					//2.5.2 print a movie data : use functions of movie.c and linkedList.c
+					//ndPtr = the next node of the ndPtr;
+					//get object of ndPtr to mvInfo void pointer
+					//if the input score is lower than the score of the movie,
+					//then print the contents of the mvInfo
+				}
 				break;
 				
 			case 5:
-				printf("\n\nBye!\n\n");
+				printf("Bye!\n\n");
 				exit_flag = 1;
-				
 				break;
 				
 			default:
 				printf("wrong command! input again\n");
 				break;
 		}
-		
-		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
-		//2.3 print number of movies
 	}
 	
 	return 0;
