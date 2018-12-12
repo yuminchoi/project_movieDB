@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 	
 	//1. reading the movie.dat-----------------------------
 	//1.1 FILE open
+	fp=fopen("movie.dat", "r");
 	
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
@@ -34,18 +35,19 @@ int main(int argc, char *argv[]) {
 	}
 
 	//1.4 FILE close
+	fp=fclose(fp);
 	
 	//2. program start
 	while(exit_flag == 0) 
 	{
 		//2.1 print menu message and get input option
-		printf("---------------MENU--------------------\n");		//메뉴 출력 
+		printf("--------------------MENU--------------------\n");		//메뉴 출력 
 		printf("1. print all the movies\n");
 		printf("2. search for specific country movies\n");
 		printf("3. search for specific runtime movies\n");
 		printf("4. search for specific score movies\n");
 		printf("5. exit\n")
-		printf("---------------MENU--------------------\n\n");
+		printf("--------------------MENU--------------------\n\n");
 		
 		printf("--select an option: ");		//메뉴 선택 숫자 입력받음. 
 		scanf("%d", &option); 
