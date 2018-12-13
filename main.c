@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
 	char country[10]; //movie country
 	int runTime; //movie runtime
 	float score; //movie score
+	int item;
 	
 	int exit_flag = 0; //flag variable for while loop
 	int option; //user input option
@@ -28,11 +29,14 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( /* read name, country, runtime and score*/ )
+	printf("Reading the data Files...");
+	while (/*read name, country, runtime, score*/fgetc(name, 200, fp)!=NULL||fgetc(country, 10, fp)!=NULL||fgetc(runTime, fp)!=NULL||fgetc(score, fp)!=NULL)
 	{	
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
+		item++;
 	}
+	printf("Read done! %i items are read.", item);
 
 	//1.4 FILE close
 	fp=fclose(fp);
